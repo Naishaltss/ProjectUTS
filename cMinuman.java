@@ -1,5 +1,7 @@
-package finalproject;
+package git.ProjectUTS;
+
 public class cMinuman extends cBarang {
     cMinuman(String nama, int harga) {
         super(nama, harga);
-    }}
+    }
+}

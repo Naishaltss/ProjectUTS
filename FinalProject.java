@@ -1,7 +1,12 @@
-package finalproject;
+package git.ProjectUTS;
+
 import java.util.Scanner;
 
 class FinalProject {
+    static void border() {
+        System.out.println("===========================================================");
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int pilih = 0;
@@ -30,103 +35,99 @@ class FinalProject {
         menumnm[4] = new cMinuman("Susu", 7000);
 
         do {
+            border();
             System.out.println("Warung Corner Side");
-            System.out.println("1. Pembeli");
-            System.out.println("2. Barang");
-            System.out.println("3. Transaksi");
+            border();
+            System.out.println("1. Barang");
+            System.out.println("2. Transaksi");
+            System.out.println("3. Member");
             System.out.println("4. Selesai");
             System.out.print("Pilih = ");
             pilih = sc.nextInt();
-            switch (pilih){
-                case 1 :
-                    // sub menu pembeli
-                    System.out.println("Nama pembeli = ");
-                    String np = sc.next();
-                    pembeli.setNamaPembeli(np);
-                    break;
-                case 2 :
-                    // sub menu barang
+            switch (pilih) {
+                case 1:
+                    // Menu Master Barang
                     do {
-                        System.out.println("");
-                        System.out.println("Menu");
-                        System.out.println("1. Master Barang");
-                        System.out.println("2. Transaksi Penjualan");
-                        System.out.println("3. Master Member");
-                        System.out.println("4. Selesai");
+                        border();
+                        System.out.println("Menu Master Barang");
+                        border();
+                        System.out.println("1. Tambah Barang");
+                        System.out.println("2. Ubah Barang");
+                        System.out.println("3. Hapus Barang");
+                        System.out.println("4. Lihat Barang");
+                        System.out.println("5. Kembali");
                         System.out.print("Pilih: ");
                         pilih = sc.nextInt();
-                        switch (pilih){
+                        switch (pilih) {
                             case 1:
-                                do {
-                                    System.out.println("");
-                                    System.out.println("Menu Master Barang");
-                                    System.out.println("1. Tambah Barang");
-                                    System.out.println("2. Ubah Barang");
-                                    System.out.println("3. Hapus Barang");
-                                    System.out.println("4. Lihat Barang");
-                                    System.out.println("5. Kembali");
-                                    System.out.print("Pilih: ");
-                                    pilih = sc.nextInt();
-                                    switch (pilih){
-                                        case 1:
-                                            System.out.println("");
-                                            System.out.print("Masukan Nama Jenis Makanan: ");
-                                            nmenumkn = sc.next();
-                                            System.out.print("Masukan Harga Makanan: ");
-                                            hmenumkn = sc.nextInt();
-                                            int i = -1;
-                                            do {
-                                                i++;
-                                            }while (menumkn[i] != null);
-                                            System.out.println("");
-                                            System.out.println(
-                                                    "Tambahkan " + nmenumkn + " [" + hmenumkn + "]?");
-                                            System.out.println("1. Tambah");
-                                            System.out.println("2. Batal");
-                                            System.out.print("Pilih: ");
-                                            pilih = sc.nextInt();
-                                            if (pilih == 1){
-                                                menumkn[i] = new cMakanan(nmenumkn, hmenumkn);
-                                                System.out.println("Penambahan Sukses!");
-                                            }
-                                            break;
-                                        case 2:
-                                            System.out.println("");
-                                            System.out.print("Masukan Nama Jenis Minuman: ");
-                                            nmenumnm = sc.next();
-                                            System.out.print("Masukan Harga Minuman: ");
-                                            hmenumnm = sc.nextInt();
-                                            int j = -1;
-                                            do {
-                                                jmlhmenumnm++;
-                                            }while (menumnm[j] != null);
-                                            System.out.println("");
-                                            System.out.println(
-                                                    "Tambahkan " + nmenumnm + " [" + hmenumnm + "]?");
-                                            System.out.println("1. Tambah");
-                                            System.out.println("2. Batal");
-                                            System.out.print("Pilih: ");
-                                            pilih = sc.nextInt();
-                                            if (pilih == 1){
-                                                menumnm[j] = new cMinuman(nmenumnm, hmenumnm);
-                                                System.out.println("Penambahan Sukses!");
-                                            }
-                                            break;
-                                    }
-                                }while (pilih != 3);
+                                // Tambah Barang
+                                border();
+                                System.out.println("Menu Tambah Barang");
+                                border();
+                                System.out.println("1. Makanan");
+                                System.out.println("2. Minuman");
+                                System.out.print("Pilih: ");
+                                pilih = sc.nextInt();
+                                switch (pilih) {
+                                    case 1:
+                                        border();
+                                        System.out.print("Masukan Nama Jenis Makanan: ");
+                                        nmenumkn = sc.next();
+                                        System.out.print("Masukan Harga Makanan: ");
+                                        hmenumkn = sc.nextInt();
+                                        int i = -1;
+                                        do {
+                                            i++;
+                                        } while (menumkn[i] != null);
+                                        System.out.println("");
+                                        System.out.println(
+                                                "Tambahkan " + nmenumkn + " [" + hmenumkn + "]?");
+                                        System.out.println("1. Tambah");
+                                        System.out.println("2. Batal");
+                                        System.out.print("Pilih: ");
+                                        pilih = sc.nextInt();
+                                        if (pilih == 1) {
+                                            menumkn[i] = new cMakanan(nmenumkn, hmenumkn);
+                                            System.out.println("Penambahan Sukses!");
+                                        }
+                                        break;
+                                    case 2:
+                                        border();
+                                        System.out.print("Masukan Nama Jenis Minuman: ");
+                                        nmenumnm = sc.next();
+                                        System.out.print("Masukan Harga Minuman: ");
+                                        hmenumnm = sc.nextInt();
+                                        int j = -1;
+                                        do {
+                                            jmlhmenumnm++;
+                                        } while (menumnm[j] != null);
+                                        System.out.println("");
+                                        System.out.println(
+                                                "Tambahkan " + nmenumnm + " [" + hmenumnm + "]?");
+                                        System.out.println("1. Tambah");
+                                        System.out.println("2. Batal");
+                                        System.out.print("Pilih: ");
+                                        pilih = sc.nextInt();
+                                        if (pilih == 1) {
+                                            menumnm[j] = new cMinuman(nmenumnm, hmenumnm);
+                                            System.out.println("Penambahan Sukses!");
+                                        }
+                                        break;
+                                }
                                 break;
-                            case 2 :
+                            case 2:
                                 do {
-                                    System.out.println("");
+                                    border();
                                     System.out.println("Menu Ubah Barang");
+                                    border();
                                     System.out.println("1. Ubah Makanan Yang Telah Dipilih");
                                     System.out.println("2. Ubah Minuman Yang Telah Dipilih");
                                     System.out.println("3. Kembali");
                                     System.out.print("Pilih: ");
-                                    pilih= sc.nextInt();
-                                    switch (pilih){
+                                    pilih = sc.nextInt();
+                                    switch (pilih) {
                                         case 1:
-                                            System.out.println("");
+                                            border();
                                             System.out
                                                     .print("Masukan Nama Jenis Makanan Yang Akan Diubah: ");
                                             ubahmakan = sc.next();
@@ -134,16 +135,17 @@ class FinalProject {
                                             tubahmkn = sc.next();
                                             System.out.print("Ubah Harga Paku Menjadi: ");
                                             thmkn = sc.nextInt();
-                                            System.out.println("");
+                                            border();
                                             System.out.println("Ubah Paku " + ubahmakan + " Menjadi "
                                                     + tubahmkn + "Dengan Harga Rp." + thmkn + "?");
                                             System.out.println("1. Ubah");
                                             System.out.println("2. Batal");
                                             System.out.print("Pilih: ");
                                             pilih = sc.nextInt();
-                                            if (pilih == 1){
+                                            if (pilih == 1) {
                                                 for (int i = 0; i < menumkn.length; i++) {
-                                                    if (menumkn[i] != null && ubahmakan.equalsIgnoreCase(menumkn[i].getNama())) {
+                                                    if (menumkn[i] != null
+                                                            && ubahmakan.equalsIgnoreCase(menumkn[i].getNama())) {
                                                         menumkn[i].setNama(tubahmkn);
                                                         menumkn[i].setHarga(thmkn);
                                                         System.out.println("Pengubahan Sukses!");
@@ -152,14 +154,14 @@ class FinalProject {
                                             }
                                             break;
                                         case 2:
-                                            System.out.println("");
+                                            border();
                                             System.out.print("Masukan Nama Jenis Minuman Yang Akan Diubah: ");
                                             ubahmnm = sc.next();
                                             System.out.print("Ubah Nama Jenis Minuman Menjadi: ");
                                             tubahmnm = sc.next();
                                             System.out.print("Ubah Harga Minuman Menjadi: ");
                                             thmnm = sc.nextInt();
-                                            System.out.println("");
+                                            border();
                                             System.out.println("Ubah Cat " + ubahmnm + " Menjadi " + tubahmnm + "?");
                                             System.out.println("1. Ubah");
                                             System.out.println("2. Batal");
@@ -177,76 +179,76 @@ class FinalProject {
                                             }
                                             break;
                                     }
-                                }while (pilih != 3);
+                                } while (pilih != 3);
                                 break;
                             case 3:
-                                do {
-                                    System.out.println("");
-                                    System.out.println("Menu Hapus Barang");
-                                    System.out.println("1. Hapus Jenis Makanan");
-                                    System.out.println("2. Hapus Jenis Minuman");
-                                    System.out.println("3. Kembali");
-                                    System.out.print("Pilih: ");
-                                    pilih = sc.nextInt();
-                                    switch (pilih){
-                                        case 1:
-                                            System.out.println("");
-                                            System.out.print("Masukan Jenis Makanan Yang Akan Dihapus: ");
-                                            hpsmkn = sc.next();
-                                            System.out.println("Hapus Makanan " + hpsmkn + "?");
-                                            System.out.println("1. Hapus");
-                                            System.out.println("2. Batal");
-                                            System.out.print("Pilih: ");
-                                            pilih = sc.nextInt();
-                                            if (pilih == 1) {
-                                                for (int i = 0; i < menumkn.length; i++) {
-                                                    if (menumkn[i] != null
-                                                            && hpsmkn.equalsIgnoreCase(menumkn[i].getNama())
-                                                            && menumkn[i + 1] != null) {
-                                                        menumkn[i] = null;
-                                                        for (int j = i; j < menumkn.length; j++) {
-                                                            if (j == menumkn.length - 1) {
-                                                                menumkn[j] = null;
-                                                            } else {
-                                                                menumkn[j] = menumkn[j + 1];
-                                                            }
+                                // Hapus barang
+                                System.out.println("Menu Hapus Barang");
+                                border();
+                                System.out.println("1. Hapus Jenis Makanan");
+                                System.out.println("2. Hapus Jenis Minuman");
+                                System.out.println("3. Kembali");
+                                System.out.print("Pilih: ");
+                                pilih = sc.nextInt();
+                                switch (pilih) {
+                                    case 1:
+                                        System.out.println("");
+                                        System.out.print("Masukan Jenis Makanan Yang Akan Dihapus: ");
+                                        hpsmkn = sc.next();
+                                        System.out.println("Hapus Makanan " + hpsmkn + "?");
+                                        System.out.println("1. Hapus");
+                                        System.out.println("2. Batal");
+                                        System.out.print("Pilih: ");
+                                        pilih = sc.nextInt();
+                                        if (pilih == 1) {
+                                            for (int i = 0; i < menumkn.length; i++) {
+                                                if (menumkn[i] != null
+                                                        && hpsmkn.equalsIgnoreCase(menumkn[i].getNama())
+                                                        && menumkn[i + 1] != null) {
+                                                    menumkn[i] = null;
+                                                    for (int j = i; j < menumkn.length; j++) {
+                                                        if (j == menumkn.length - 1) {
+                                                            menumkn[j] = null;
+                                                        } else {
+                                                            menumkn[j] = menumkn[j + 1];
                                                         }
                                                     }
                                                 }
-                                                System.out.println("Penghapusan Berhasil!");
                                             }
-                                            break;
-                                        case 2:
-                                            System.out.println("");
-                                            System.out.print("Masukan Jenis minuman Yang Akan Dihapus: ");
-                                            hpsmnm = sc.next();
-                                            System.out.println("Hapus Cat " + hpsmnm + "?");
-                                            System.out.println("1. Hapus");
-                                            System.out.println("2. Batal");
-                                            System.out.print("Pilih: ");
-                                            pilih = sc.nextInt();
-                                            if (pilih == 1){
-                                                for (int i = 0; i < menumnm.length; i++) {
-                                                    if (menumnm[i] != null
-                                                            && hpsmnm.equalsIgnoreCase(menumnm[i].getNama())
-                                                            && menumnm[i + 1] != null) {
-                                                        menumnm[i] = null;
-                                                        for (int j = i; j < menumnm.length; j++) {
-                                                            if (j == menumnm.length - 1) {
-                                                                menumnm[j] = null;
-                                                            } else {
-                                                                menumnm[j] = menumnm[j + 1];
-                                                            }
+                                            System.out.println("Penghapusan Berhasil!");
+                                        }
+                                        break;
+                                    case 2:
+                                        System.out.println("");
+                                        System.out.print("Masukan Jenis minuman Yang Akan Dihapus: ");
+                                        hpsmnm = sc.next();
+                                        System.out.println("Hapus Cat " + hpsmnm + "?");
+                                        System.out.println("1. Hapus");
+                                        System.out.println("2. Batal");
+                                        System.out.print("Pilih: ");
+                                        pilih = sc.nextInt();
+                                        if (pilih == 1) {
+                                            for (int i = 0; i < menumnm.length; i++) {
+                                                if (menumnm[i] != null
+                                                        && hpsmnm.equalsIgnoreCase(menumnm[i].getNama())
+                                                        && menumnm[i + 1] != null) {
+                                                    menumnm[i] = null;
+                                                    for (int j = i; j < menumnm.length; j++) {
+                                                        if (j == menumnm.length - 1) {
+                                                            menumnm[j] = null;
+                                                        } else {
+                                                            menumnm[j] = menumnm[j + 1];
                                                         }
                                                     }
                                                 }
-                                                System.out.println("Penghapusan Berhasil!");
                                             }
-                                            break;
-                                    }
-                                }while (pilih != 3);
+                                            System.out.println("Penghapusan Berhasil!");
+                                        }
+                                        break;
+                                }
                                 break;
                             case 4:
+                                // Lihat barang
                                 do {
                                     System.out.println("");
                                     System.out.println("Menu Lihat Barang");
@@ -255,7 +257,7 @@ class FinalProject {
                                     System.out.println("3. Kembali");
                                     System.out.print("Pilih: ");
                                     pilih = sc.nextInt();
-                                    switch (pilih){
+                                    switch (pilih) {
                                         case 1:
                                             System.out.println("");
                                             System.out.println("Daftar Jenis Makanan");
@@ -281,12 +283,18 @@ class FinalProject {
                                             }
                                             break;
                                     }
-                                }while (pilih != 3);
+                                } while (pilih != 3);
+                                break;
+                            case 5:
+                                System.out.println("Kembali");
+                                break;
+                            default:
+                                System.out.println("Input salah!");
                                 break;
                         }
-                    }while (pilih != 5);
-                    break;
-                case 3:
+                    } while (pilih != 5);
+                case 2:
+                    // Menu Master Transaksi
                     do {
                         System.out.println("  Pembelian");
                         System.out.println("  1. Isi Pembeli");
@@ -299,7 +307,7 @@ class FinalProject {
                         System.out.println("  8. Pembelian Selesai dan Hasil Transaksi");
                         System.out.print(" Pilih = ");
                         pilih = sc.nextInt();
-                        switch (pilih){
+                        switch (pilih) {
                             case 1:
                                 // pembelian
                                 transaksi.isiPembeli(pembeli);
@@ -357,22 +365,25 @@ class FinalProject {
                                 transaksi.lihatMinuman();
                                 break;
                             case 8:
-                                                         System.out.println(""); 
-                                System.out.print("Bulan Transaksi: "); 
-                                bulan = sc.next(); 
-                                System.out.print("Tanggal Transaksi: "); 
-                                tanggal = sc.nextInt(); 
-                                System.out.println("");
-                                System.out.println("=============================");
-                                System.out.println("Indomaret"); 
-                                System.out.println("Waktu Transaksi: " + tanggal + "," +bulan); 
+                                border();
+                                System.out.print("Bulan Transaksi: ");
+                                bulan = sc.next();
+                                System.out.print("Tanggal Transaksi: ");
+                                tanggal = sc.nextInt();
+                                border();
+                                border();
+                                System.out.println("Indomaret");
+                                System.out.println("Waktu Transaksi: " + tanggal + "," + bulan);
                                 System.out.println("Transaksi Atas Nama: " + pembeli.getNama());
-                                System.out.println("");
+                                border();
                                 transaksi.lihatMakanan();
                                 transaksi.lihatMinuman();
-                                                
-                 }
-                 }while(pilih!=8);
+                                // Tambahkan pembayaran
+                        }
+                    } while (pilih != 8);
+                    break;
+                case 3:
+                    // Menu Master Member
 
                 case 4:
                     System.out.print("Terima Kasih ...");
@@ -380,3 +391,51 @@ class FinalProject {
         } while (pilih != 5);
     }
 }
+
+/*
+ * sisa punyamu >..<
+ * do {
+ * System.out.println();
+ * System.out.println("Menu  Transaksi");
+ * System.out.println("1. Pembeli");
+ * System.out.println("1. Master Barang");
+ * System.out.println("2. Transaksi Penjualan");
+ * 
+ * System.out.println("4. Selesai");
+ * System.out.print("Pilih: ");
+ * pilih = sc.nextInt();
+ * switch (pilih) {
+ * case 1:
+ * // sub menu pembeli
+ * System.out.println("Nama pembeli = ");
+ * String np = sc.next();
+ * pembeli.setNamaPembeli(np);
+ * break;
+ * case 2:
+ * 
+ * break;
+ * case 3:
+ * do {
+ * System.out.println("");
+ * System.out.println("Menu Hapus Barang");
+ * 
+ * 
+ * System.out.println("3. Kembali");
+ * System.out.print("Pilih: ");
+ * pilih = sc.nextInt();
+ * switch (pilih) {
+ * case 1:
+ * 
+ * break;
+ * case 2:
+ * 
+ * break;
+ * }
+ * } while (pilih != 3);
+ * break;
+ * case 4:
+ * 
+ * break;
+ * }
+ * } while (pilih != 5);
+ */
