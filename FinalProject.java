@@ -4,13 +4,11 @@ import java.util.Scanner;
 class FinalProject {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int pilih = 0, pilih1 = 0, pilih2 = 0, pilih3, pilih4=0, pilih5 = 0, pilih6 = 0, pilih7;
-        int pilih8 = 0, pilih9 = 0, pilih10 = 0, pilih11 = 0, pilih12 = 0, pilih13 = 0, pilih14 = 0;
-        int pilih15 = 0, pilih16 = 0, pilih17 = 0, pilih18 = 0, pilih19 = 0;
+        int pilih = 0;
         int b = 0, c = 0;
         int jmlhmenumkn = 5, maksmenumkn = 10;
-        String nmenumkn, ubahmakan, tubahmkn, hpsmkn;
-        int hmenumkn, thmkn;
+        String nmenumkn, ubahmakan, tubahmkn, hpsmkn, bulan;
+        int hmenumkn, thmkn, tanggal;
         int jmlhmenumnm = 5, maksmenumnm = 10;
         String nmenumnm, ubahmnm, tubahmnm, hpsmnm;
         int hmenumnm, thmnm;
@@ -298,7 +296,7 @@ class FinalProject {
                         System.out.println("  5. Tambah Minuman");
                         System.out.println("  6. Hapus Minuman");
                         System.out.println("  7. Lihat Minuman");
-                        System.out.println("  8. Selesai");
+                        System.out.println("  8. Pembelian Selesai dan Hasil Transaksi");
                         System.out.print(" Pilih = ");
                         pilih = sc.nextInt();
                         switch (pilih){
@@ -359,10 +357,23 @@ class FinalProject {
                                 transaksi.lihatMinuman();
                                 break;
                             case 8:
-                                System.out.println("  Kembali ...");
-                        }
-                    }while (pilih != 9);
-                    break;
+                                                         System.out.println(""); 
+                                System.out.print("Bulan Transaksi: "); 
+                                bulan = sc.next(); 
+                                System.out.print("Tanggal Transaksi: "); 
+                                tanggal = sc.nextInt(); 
+                                System.out.println("");
+                                System.out.println("=============================");
+                                System.out.println("Indomaret"); 
+                                System.out.println("Waktu Transaksi: " + tanggal + "," +bulan); 
+                                System.out.println("Transaksi Atas Nama: " + pembeli.getNama());
+                                System.out.println("");
+                                transaksi.lihatMakanan();
+                                transaksi.lihatMinuman();
+                                                
+                 }
+                 }while(pilih!=8);
+
                 case 4:
                     System.out.print("Terima Kasih ...");
             }
